@@ -76,6 +76,35 @@ public class Main {
         }
         return numbers;
     }
+
+    private static Integer[] quickSort(Integer low, Integer high, Integer... numbers){
+        if(low==null)low = 0;
+        if(high==null) high=numbers.length-1;
+
+        if(low<high){
+            int pi = partiton(numbers, low, high);
+            quickSort(low, pi-1, numbers);
+            quickSort(low+1, high, numbers);
+        }
+        return numbers;
+    }
+
+    private static int partiton(Integer[] numbers, int low, int high){
+        int pivot = numbers[high];
+        int i = (low -1);
+        for (int j = low; j <high; j++) {
+            if(numbers[j]<=pivot){
+                i++;
+                int tmp = numbers[i];
+                numbers[i] = numbers[j];
+                numbers[j] = tmp;
+            }
+        }
+        int tmp = numbers[i+1];
+        numbers[i+1] = numbers[high];
+        numbers[high] = tmp;
+        return i+1;
+    }
     public static void main(String[] args) {
         Integer[] numbers = selectionSort(5,6,7,1,3,76,7,52);
         for (Integer integer : numbers) {
@@ -91,6 +120,12 @@ public class Main {
         int[] numbers3 = mergeSort(null, null, 55,55,41,24,3,441,22,45,66,6,2,33,1,2);
         for(Integer integer : numbers3){
             System.out.println(integer);
+        }
+
+        System.out.println("Smart Sort");
+        Integer[] numbers4 = quickSort(null, null, 5,6,5,2,3,4,5,6,1,1,23,53,26,2);
+        for (Integer integer : numbers4) {
+            System.out.println(integer);   
         }
     }
 }
