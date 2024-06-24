@@ -1,4 +1,4 @@
-# CSC265 Sorting
+# CSC263 Sorting
 
 ## About
-This assignment did not require code, however this code is a demonstration of the different sorting algorithms that we learned.
+This assignment did not require code, however, this code is a demonstration of the different sorting algorithms that we learned.
